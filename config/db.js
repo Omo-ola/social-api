@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
-const env = require("node:process");
+require("dotenv").config();
 
-
-let URI = process.env.MONGODB_URI || "mongodb://localhost:27017/social_network";
+let URI = process.env.MONGODB_URI;
 
 const connectDB = async () => {
   try {
@@ -10,7 +9,7 @@ const connectDB = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-    console.log("MongoDB Connected");
+    console.log("MongoDB Connected", URI);
   } catch (err) {
     console.error("Database connection error:", err);
     process.exit(1);

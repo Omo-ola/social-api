@@ -36,7 +36,6 @@ exports.register = async (req, res) => {
     // hash passwords
     const saltRound = 10;
     const hashPass = await bcrypt.hash(password, saltRound);
-    console.log(hashPass);
 
     // Create user
     const user = new User({
